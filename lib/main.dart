@@ -5,15 +5,24 @@ import 'dart:math';
 void main() {
   return runApp(
     MaterialApp(
-      home: Scaffold(
-        backgroundColor: Color(0xFFFFA000),
-        appBar: AppBar(
-          title: Text('Choose a card'),
-        ),
-        body: MyHomePage(),
-      ),
+      home: MyHome(),
     ),
   );
+}
+
+class MyHome extends StatelessWidget {
+  const MyHome({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Color(0xFFFFB100),
+        appBar: AppBar(
+          title: Text('Choose a card'),
+          backgroundColor: Color(0xffFBC252),
+        ),
+        body: MyHomePage());
+  }
 }
 
 class MyHomePage extends StatefulWidget {
@@ -49,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: PlayingCardView(
+            elevation: 15.0,
             card: PlayingCard(
                 suitValues[randomForSuit], cardValues[randomForCardsValues]),
           ),
@@ -58,7 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 70,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Colors.white,
+              primary: Color(0xFFFBC252),
+              elevation: 10,
+              shadowColor: Colors.black,
             ),
             onPressed: () {
               setState(() {
@@ -69,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text(
               'Draw a card',
               style: TextStyle(
-                color: Color(0xFF212121),
+                color: Colors.white,
                 fontSize: 26,
               ),
             ),
