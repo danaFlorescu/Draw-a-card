@@ -51,6 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
   int randomForSuit = Random().nextInt(4);
   int randomForCardsValues = Random().nextInt(13);
 
+  bool showBackVar = true;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -58,10 +60,10 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: PlayingCardView(
-            elevation: 15.0,
-            card: PlayingCard(
-                suitValues[randomForSuit], cardValues[randomForCardsValues]),
-          ),
+              elevation: 15.0,
+              card: PlayingCard(
+                  suitValues[randomForSuit], cardValues[randomForCardsValues]),
+              showBack: showBackVar),
         ),
         SizedBox(
           width: 200,
@@ -74,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             onPressed: () {
               setState(() {
+                showBackVar = false;
                 randomForSuit = Random().nextInt(4);
                 randomForCardsValues = Random().nextInt(13);
               });
