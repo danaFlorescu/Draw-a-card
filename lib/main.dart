@@ -2,24 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:playing_cards/playing_cards.dart';
 import 'dart:math';
 
+const List<Suit> suitValues = [
+  Suit.diamonds,
+  Suit.clubs,
+  Suit.hearts,
+  Suit.spades
+];
+const List<CardValue> cardValues = [
+  CardValue.ace,
+  CardValue.two,
+  CardValue.three,
+  CardValue.four,
+  CardValue.five,
+  CardValue.six,
+  CardValue.seven,
+  CardValue.eight,
+  CardValue.nine,
+  CardValue.ten,
+  CardValue.jack,
+  CardValue.queen,
+  CardValue.king
+];
+
 void main() {
   return runApp(
     MaterialApp(
+      theme: ThemeData.light(),
       home: MyHome(),
     ),
   );
 }
 
 class MyHome extends StatelessWidget {
-  const MyHome({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFFFB100),
         appBar: AppBar(
           title: Text('Choose a card'),
-          backgroundColor: Color(0xffFBC252),
         ),
         body: MyHomePage());
   }
@@ -31,23 +50,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var suitValues = [Suit.diamonds, Suit.clubs, Suit.hearts, Suit.spades];
-  var cardValues = [
-    CardValue.ace,
-    CardValue.two,
-    CardValue.three,
-    CardValue.four,
-    CardValue.five,
-    CardValue.six,
-    CardValue.seven,
-    CardValue.eight,
-    CardValue.nine,
-    CardValue.ten,
-    CardValue.jack,
-    CardValue.queen,
-    CardValue.king
-  ];
-
   int randomForSuit = Random().nextInt(4);
   int randomForCardsValues = Random().nextInt(13);
 
@@ -70,9 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
           height: 70,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: Color(0xFFFBC252),
+              // primary: Color(0xFFFBC252),
               elevation: 10,
-              shadowColor: Colors.black,
+              //shadowColor: Colors.black,
             ),
             onPressed: () {
               setState(() {
