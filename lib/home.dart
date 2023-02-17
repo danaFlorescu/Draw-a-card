@@ -55,7 +55,7 @@ class _PlayingCardsState extends State<PlayingCards> {
             height: 70,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                // primary: Color(0xFFFBC252),
+                //primary: Color(0xffDC0000),
                 elevation: 10,
                 //shadowColor: Colors.black,
               ),
