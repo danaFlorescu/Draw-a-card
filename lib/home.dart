@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:playing_cards/playing_cards.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 const List<Suit> suitValues = [
   Suit.diamonds,
@@ -66,11 +67,15 @@ class _PlayingCardsState extends State<PlayingCards> {
                   randomForCardsValues = Random().nextInt(13);
                 });
               },
-              child: Text(
-                'Draw a card',
+              child: DefaultTextStyle(
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 26,
+                ),
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText('Draw a card'),
+                  ],
                 ),
               ),
             ),
